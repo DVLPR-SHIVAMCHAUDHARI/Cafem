@@ -1,4 +1,5 @@
 import 'package:cafem/controller/Auth_controller.dart';
+import 'package:cafem/controller/food_controller.dart';
 import 'package:cafem/firebase_options.dart';
 import 'package:cafem/views/home_Screen.dart';
 import 'package:cafem/views/sign_in_screen.dart';
@@ -54,8 +55,10 @@ class Cafem extends StatelessWidget {
       child: MultiProvider(
           providers: [
             ChangeNotifierProvider(create: (_) => AuthController()),
+            ChangeNotifierProvider(create: (_) => FoodController()),
           ],
           child: MaterialApp.router(
+            debugShowCheckedModeBanner: false,
             routerConfig: router,
           )),
     );

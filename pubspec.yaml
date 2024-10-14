@@ -43,6 +43,10 @@ dependencies:
   cloud_firestore: ^5.4.4
   provider: ^6.1.2
   flutter_screenutil: ^5.9.3
+  firebase_storage: ^12.3.3
+  image_picker: ^1.1.2
+  dotted_border: ^2.1.0
+  image_picker_web: ^4.0.0
 
 dev_dependencies:
   flutter_test:
