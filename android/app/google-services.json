@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "904073852438",
-    "project_id": "cafem-96c62",
-    "storage_bucket": "cafem-96c62.appspot.com"
+    "project_number": "219793038613",
+    "project_id": "cafem-5f88c",
+    "storage_bucket": "cafem-5f88c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:904073852438:android:f54617c3c0801dc0d96737",
+        "mobilesdk_app_id": "1:219793038613:android:7d85449f98880216ad9d1c",
         "android_client_info": {
           "package_name": "com.example.cafem"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBooC3TRDpJfWd4WJRTjcwqrw0wVOzse4A"
+          "current_key": "AIzaSyDtnsQALwmcW3vVRCe1XWJb53SaMHVyZIg"
         }
       ],
       "services": {

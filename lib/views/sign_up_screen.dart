@@ -1,4 +1,3 @@
-import 'package:cafem/consts/color_pallete.dart';
 import 'package:cafem/consts/customtextfeild.dart';
 import 'package:cafem/controller/Auth_controller.dart';
 import 'package:cafem/main.dart';
@@ -17,6 +16,7 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   bool _ispass = false;
+  bool ispass = false;
   bool isLoading = false;
   set loading(value) {
     isLoading = value;
@@ -50,7 +50,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     Text(
                       "Sign Up",
                       style: TextStyle(
-                          color: AppColors.PurpuleColor,
+                          color: Colors.blue,
                           fontSize: 25.sp,
                           fontWeight: FontWeight.bold),
                     ),
@@ -82,12 +82,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         suffixicon: IconButton(
                             onPressed: () {
                               setState(() {
-                                _ispass = !_ispass;
+                                ispass = !ispass;
                               });
                             },
-                            icon: _ispass
-                                ? const Icon(Icons.visibility_outlined)
-                                : const Icon(Icons.visibility_off_outlined))),
+                            icon: ispass
+                                ? const Icon(
+                                    Icons.visibility_outlined,
+                                    color: Colors.grey,
+                                  )
+                                : const Icon(
+                                    Icons.visibility_off_outlined,
+                                    color: Colors.grey,
+                                  ))),
                     SizedBox(
                       height: 40.h,
                     ),
@@ -104,8 +110,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               });
                             },
                             icon: _ispass
-                                ? const Icon(Icons.visibility_outlined)
-                                : const Icon(Icons.visibility_off_outlined))),
+                                ? const Icon(
+                                    Icons.visibility_outlined,
+                                    color: Colors.grey,
+                                  )
+                                : const Icon(
+                                    Icons.visibility_off_outlined,
+                                    color: Colors.grey,
+                                  ))),
                     SizedBox(
                       height: 95.h,
                     ),
@@ -114,8 +126,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       width: 390.w,
                       child: FilledButton(
                         style: ButtonStyle(
-                          backgroundColor:
-                              WidgetStatePropertyAll(AppColors.TextFeildColor),
+                          backgroundColor: WidgetStatePropertyAll(Colors.blue),
                         ),
                         onPressed: () async {
                           if (formKey.currentState!.validate()) {
@@ -156,7 +167,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           Text(
                             "Already have an account ?  ",
                             style: TextStyle(
-                                color: AppColors.PurpuleColor,
+                                color: Colors.blue,
                                 fontSize: 15.sp,
                                 fontWeight: FontWeight.normal),
                           ),
@@ -170,7 +181,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             child: Text(
                               "Sign In",
                               style: TextStyle(
-                                  color: AppColors.PurpuleColor,
+                                  color: Colors.blue,
                                   fontSize: 15.sp,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -192,7 +203,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             height: 128.h,
             width: 128.w,
             decoration: const BoxDecoration(
-                color: Color(0xff471AA0), shape: BoxShape.circle),
+                color: Colors.lightBlueAccent, shape: BoxShape.circle),
           ),
         ),
         Positioned(
@@ -202,8 +213,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
             clipBehavior: Clip.antiAlias,
             height: 128.h,
             width: 128.w,
-            decoration: const BoxDecoration(
-                color: Color(0xffBB84E8), shape: BoxShape.circle),
+            decoration:
+                const BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
           ),
         ),
       ],

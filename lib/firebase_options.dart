@@ -41,21 +41,21 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAEGtk_Qo7Cm9beeHQJm46lbxaXW_odtb0',
-    appId: '1:904073852438:web:f95c5e32a5fb7a6cd96737',
-    messagingSenderId: '904073852438',
-    projectId: 'cafem-96c62',
-    authDomain: 'cafem-96c62.firebaseapp.com',
-    storageBucket: 'cafem-96c62.appspot.com',
-    measurementId: 'G-WQFGJNV38N',
+    apiKey: 'AIzaSyAoEAVmM23Dls3H5jeUp019Rx9X5fLdWm4',
+    appId: '1:219793038613:web:fee6b1e769d2c434ad9d1c',
+    messagingSenderId: '219793038613',
+    projectId: 'cafem-5f88c',
+    authDomain: 'cafem-5f88c.firebaseapp.com',
+    storageBucket: 'cafem-5f88c.appspot.com',
+    measurementId: 'G-Y4ZKCQJMXH',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBooC3TRDpJfWd4WJRTjcwqrw0wVOzse4A',
-    appId: '1:904073852438:android:f54617c3c0801dc0d96737',
-    messagingSenderId: '904073852438',
-    projectId: 'cafem-96c62',
-    storageBucket: 'cafem-96c62.appspot.com',
+    apiKey: 'AIzaSyDtnsQALwmcW3vVRCe1XWJb53SaMHVyZIg',
+    appId: '1:219793038613:android:7d85449f98880216ad9d1c',
+    messagingSenderId: '219793038613',
+    projectId: 'cafem-5f88c',
+    storageBucket: 'cafem-5f88c.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(

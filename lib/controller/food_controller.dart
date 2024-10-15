@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:cafem/controller/Auth_controller.dart';
+import 'package:cafem/main.dart';
 import 'package:cafem/services/file_upload.dart';
 import 'package:cafem/utility/scankbar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -15,7 +17,8 @@ class FoodController extends ChangeNotifier {
   List<XFile> images = [];
 
   pickImage() async {
-    images = await ImagePicker().pickMultiImage();
+    List<XFile> images = await ImagePicker().pickMultiImage();
+    this.images.addAll(images);
     notifyListeners();
   }
 
@@ -41,9 +44,26 @@ class FoodController extends ChangeNotifier {
     List<String?> url = await uploadImages();
     print(url);
 
-    await FirebaseFirestore.instance
-        .collection("FoodItems")
-        .add({'title': title, 'desc': desc, 'price': price, 'img': url});
-    displaySnackbar("Product Added SucCessfully");
+    await FirebaseFirestore.instance.collection("FoodItems").add(
+      {
+        'title': title,
+        'desc': desc,
+        'price': price,
+        'img': url,
+        'uid': AuthController().uid
+      },
+    );
+    displaySnackbar("Product Added SucCessfully", color: Colors.green);
+  }
+
+  fetchfooditem() async {
+    QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('FoodItems')
+        .where('uid', isEqualTo: AuthController().uid)
+        .get();
+
+    snapshot.docs.forEach((doc) {
+      logger.d(doc.data());
+    });
   }
 }

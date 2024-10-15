@@ -11,7 +11,7 @@ import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 
-enum Routes { splash, signin, signnup, homescreen }
+enum Routes { splash, signin, signnup, homescreen, forgotpass }
 
 final navigatorKey = GlobalKey<NavigatorState>();
 BuildContext get appContext => navigatorKey.currentState!.context;

@@ -1,5 +1,3 @@
-import 'package:cafem/consts/color_pallete.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,16 +23,19 @@ customTextFiled({
       hintText: hinttext,
       prefixIcon: Icon(
         icon,
-        color: AppColors.PurpuleColor,
+        color: Colors.blue,
         size: 25,
       ),
       suffixIcon: suffixicon,
+      focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.blue),
+          borderRadius: BorderRadius.circular(15.r)),
       border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: AppColors.PurpuleColor)),
+          borderSide: BorderSide(color: Colors.blue)),
       enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: AppColors.PurpuleColor)),
+          borderSide: BorderSide(color: Colors.blue)),
       hintStyle: TextStyle(
           color: Colors.grey.shade500,
           fontSize: 15.sp,
