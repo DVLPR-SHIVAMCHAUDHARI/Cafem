@@ -14,6 +14,8 @@ class FoodController extends ChangeNotifier {
   FoodController.internal();
   factory FoodController() => instance;
 
+  List<Map<String, dynamic>> FoodItems = [];
+
   List<XFile> images = [];
 
   pickImage() async {
@@ -27,15 +29,16 @@ class FoodController extends ChangeNotifier {
     notifyListeners();
   }
 
-  uploadImages() {
+  uploadImages() async {
     List<String> urls = [];
 
-    images.forEach((image) async {
+    for (XFile image in images) {
       String? url = await FileUpload().upload(File(image.path));
 
       print(url);
       urls.add(url!);
-    });
+    }
+    ;
 
     return urls;
   }
@@ -50,20 +53,19 @@ class FoodController extends ChangeNotifier {
         'desc': desc,
         'price': price,
         'img': url,
-        'uid': AuthController().uid
       },
     );
     displaySnackbar("Product Added SucCessfully", color: Colors.green);
   }
 
   fetchfooditem() async {
-    QuerySnapshot snapshot = await FirebaseFirestore.instance
-        .collection('FoodItems')
-        .where('uid', isEqualTo: AuthController().uid)
-        .get();
+    QuerySnapshot snapshot =
+        await FirebaseFirestore.instance.collection('FoodItems').get();
 
     snapshot.docs.forEach((doc) {
       logger.d(doc.data());
+      FoodItems.add(doc.data() as Map<String, dynamic>);
+      notifyListeners();
     });
   }
 }

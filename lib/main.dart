@@ -33,7 +33,8 @@ class Cafem extends StatelessWidget {
       GoRoute(
         path: '/',
         name: Routes.signin.name,
-        builder: (context, state) => SignInScreen(),
+        builder: (context, state) =>
+            AuthController().isLogin ? HomeScreen() : SignInScreen(),
       ),
       GoRoute(
         path: '/signup',

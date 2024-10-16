@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:cafem/consts/customtextfeild.dart';
 import 'package:cafem/controller/Auth_controller.dart';
@@ -218,6 +219,35 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () {
           openAddFoodBottomSheet(context);
         },
+      ),
+      body: Container(
+        width: double.infinity,
+        child: Column(
+          children: [
+            Consumer<FoodController>(builder: (context, controller, _) {
+              return Expanded(
+                child: ListView.builder(
+                  itemCount: controller.FoodItems.length,
+                  itemBuilder: (context, index) => ListTile(
+                    leading: Container(
+                      height: 200.h,
+                      width: 100.w,
+                      child: Image.network(
+                        controller.FoodItems[index]['img'][0].toString(),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    title: Text(controller.FoodItems[index]['title']),
+                    subtitle: Text(
+                      controller.FoodItems[index]['desc'],
+                      maxLines: 2,
+                    ),
+                  ),
+                ),
+              );
+            })
+          ],
+        ),
       ),
     );
   }
