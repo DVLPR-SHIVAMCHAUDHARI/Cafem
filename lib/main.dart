@@ -1,9 +1,10 @@
 import 'package:cafem/controller/Auth_controller.dart';
 import 'package:cafem/controller/food_controller.dart';
 import 'package:cafem/firebase_options.dart';
+import 'package:cafem/views/Auth/forgetPass.dart';
 import 'package:cafem/views/home_Screen.dart';
-import 'package:cafem/views/sign_in_screen.dart';
-import 'package:cafem/views/sign_up_screen.dart';
+import 'package:cafem/views/Auth/sign_in_screen.dart';
+import 'package:cafem/views/Auth/sign_up_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -46,6 +47,11 @@ class Cafem extends StatelessWidget {
         name: Routes.homescreen.name,
         builder: (context, state) => HomeScreen(),
       ),
+      GoRoute(
+        path: '/forgot',
+        name: Routes.forgotpass.name,
+        builder: (context, state) => Forgotpassword(),
+      )
     ],
   );
 

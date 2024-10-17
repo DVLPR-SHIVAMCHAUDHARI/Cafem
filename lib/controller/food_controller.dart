@@ -38,7 +38,6 @@ class FoodController extends ChangeNotifier {
       print(url);
       urls.add(url!);
     }
-    ;
 
     return urls;
   }
@@ -55,17 +54,21 @@ class FoodController extends ChangeNotifier {
         'img': url,
       },
     );
-    displaySnackbar("Product Added SucCessfully", color: Colors.green);
+    displaySnackbar("Product Added Successfully", color: Colors.green);
+    notifyListeners();
   }
 
   fetchfooditem() async {
-    QuerySnapshot snapshot =
-        await FirebaseFirestore.instance.collection('FoodItems').get();
-
-    snapshot.docs.forEach((doc) {
-      logger.d(doc.data());
-      FoodItems.add(doc.data() as Map<String, dynamic>);
-      notifyListeners();
+    FirebaseFirestore.instance
+        .collection('FoodItems')
+        .snapshots()
+        .listen((snapshot) {
+      FoodItems.clear();
+      snapshot.docs.forEach((doc) {
+        logger.d(doc.data());
+        FoodItems.add(doc.data() as Map<String, dynamic>);
+        notifyListeners();
+      });
     });
   }
 }

@@ -1,6 +1,7 @@
 import 'package:cafem/consts/customtextfeild.dart';
 import 'package:cafem/controller/Auth_controller.dart';
 import 'package:cafem/main.dart';
+import 'package:cafem/views/Auth/forgetPass.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -78,7 +79,9 @@ class _SignInScreenState extends State<SignInScreen> {
                 Align(
                   alignment: Alignment.bottomRight,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      GoRouter.of(context).goNamed(Routes.forgotpass.name);
+                    },
                     child: Text(
                       "Forgot Password ?",
                       style: TextStyle(

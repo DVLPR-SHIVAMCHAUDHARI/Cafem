@@ -195,13 +195,18 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.blue,
         actions: [
           IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.shopping_cart_outlined,
+                color: Colors.white,
+              )),
+          IconButton(
             onPressed: () {
               AuthController().signOut();
             },
             icon: Icon(
               Icons.logout,
               color: Colors.white,
-              size: 30,
             ),
           ),
         ],
@@ -211,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.white70,
+        backgroundColor: Colors.white,
         child: Icon(
           Icons.add,
           color: Colors.black,
@@ -221,34 +226,102 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
       body: Container(
+        padding: EdgeInsets.all(10),
         width: double.infinity,
-        child: Column(
-          children: [
-            Consumer<FoodController>(builder: (context, controller, _) {
-              return Expanded(
-                child: ListView.builder(
-                  itemCount: controller.FoodItems.length,
-                  itemBuilder: (context, index) => ListTile(
-                    leading: Container(
-                      height: 200.h,
-                      width: 100.w,
+        child: Consumer<FoodController>(builder: (context, controller, _) {
+          return Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: controller.FoodItems.length,
+              itemBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Container(
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12.r),
+                      ),
+                      height: 100.h,
+                      width: 120.w,
                       child: Image.network(
                         controller.FoodItems[index]['img'][0].toString(),
                         fit: BoxFit.cover,
                       ),
                     ),
-                    title: Text(controller.FoodItems[index]['title']),
-                    subtitle: Text(
-                      controller.FoodItems[index]['desc'],
-                      maxLines: 2,
+                    SizedBox(
+                      width: 10.w,
                     ),
-                  ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            controller.FoodItems[index]['title'],
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            controller.FoodItems[index]['desc'],
+                            maxLines: 2,
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Column(
+                      children: [
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: controller.FoodItems[index]['price'],
+                                  style: TextStyle(color: Colors.black)),
+                              TextSpan(
+                                  text: "₹",
+                                  style: TextStyle(color: Colors.black))
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.add_shopping_cart,
+                              color: Colors.blue,
+                            ))
+                      ],
+                    )
+                  ],
                 ),
-              );
-            })
-          ],
-        ),
+              ),
+            ),
+          );
+        }),
       ),
+      // bottomNavigationBar: BottomAppBar(
+      //   color: Colors.blue,
+      //   height: 50,
+      //   child: Row(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     children: [
+      //       Text(
+      //         "Continue to Cart",
+      //         style: TextStyle(color: Colors.white, fontSize: 16.sp),
+      //       ),
+      //       SizedBox(
+      //         width: 10.w,
+      //       ),
+      //       Icon(
+      //         Icons.shopping_cart_checkout_outlined,
+      //         color: Colors.white,
+      //       )
+      //     ],
+      //   ),
+      // )
     );
   }
 }
