@@ -125,7 +125,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       height: 50.h,
                       width: 390.w,
                       child: FilledButton(
-                        style: ButtonStyle(
+                        style: const ButtonStyle(
                           backgroundColor: WidgetStatePropertyAll(Colors.blue),
                         ),
                         onPressed: () async {
@@ -143,7 +143,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           }
                         },
                         child: isLoading
-                            ? SizedBox(
+                            ? const SizedBox(
                                 height: 15,
                                 width: 15,
                                 child: CircularProgressIndicator())

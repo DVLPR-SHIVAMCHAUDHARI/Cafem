@@ -64,11 +64,11 @@ class _SignInScreenState extends State<SignInScreen> {
                         });
                       },
                       icon: _ispass
-                          ? Icon(
+                          ? const Icon(
                               Icons.visibility_outlined,
                               color: Colors.blue,
                             )
-                          : Icon(
+                          : const Icon(
                               Icons.visibility_off_outlined,
                               color: Colors.blue,
                             )),
@@ -82,7 +82,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     onPressed: () {
                       GoRouter.of(context).goNamed(Routes.forgotpass.name);
                     },
-                    child: Text(
+                    child: const Text(
                       "Forgot Password ?",
                       style: TextStyle(
                           color: Colors.blue, fontWeight: FontWeight.bold),
@@ -98,7 +98,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   child: Consumer<AuthController>(
                       builder: (context, controller, _) {
                     return FilledButton(
-                      style: ButtonStyle(
+                      style: const ButtonStyle(
                         backgroundColor: WidgetStatePropertyAll(Colors.blue),
                       ),
                       onPressed: () {
@@ -109,7 +109,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         }
                       },
                       child: controller.isLoading
-                          ? SizedBox(
+                          ? const SizedBox(
                               width: 10,
                               height: 10,
                               child: CircularProgressIndicator(

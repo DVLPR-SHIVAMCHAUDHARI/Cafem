@@ -15,7 +15,7 @@ class Forgotpassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         child: Form(
           key: formKey,
@@ -40,7 +40,7 @@ class Forgotpassword extends StatelessWidget {
                       GoRouter.of(context).pop();
                     }
                   },
-                  child: Text("Reset password"))
+                  child: const Text("Reset password"))
             ],
           ),
         ),

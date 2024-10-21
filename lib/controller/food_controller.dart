@@ -64,11 +64,11 @@ class FoodController extends ChangeNotifier {
         .snapshots()
         .listen((snapshot) {
       FoodItems.clear();
-      snapshot.docs.forEach((doc) {
+      for (var doc in snapshot.docs) {
         logger.d(doc.data());
-        FoodItems.add(doc.data() as Map<String, dynamic>);
+        FoodItems.add(doc.data());
         notifyListeners();
-      });
+      }
     });
   }
 }

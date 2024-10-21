@@ -11,7 +11,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
       isScrollControlled: true,
       context: context,
       builder: (context) => Container(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         width: double.infinity,
         child: SingleChildScrollView(
           child: Form(
@@ -56,9 +56,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               FoodController().pickImage();
                             },
                             child: DottedBorder(
-                              radius: Radius.circular(12),
+                              radius: const Radius.circular(12),
                               borderType: BorderType.RRect,
-                              child: Container(
+                              child: SizedBox(
                                 width: double.infinity,
                                 height: 200.h,
                                 child: Column(
@@ -66,8 +66,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     SizedBox(
                                       height: 65.h,
                                     ),
-                                    Icon(Icons.upload_file),
-                                    Text("Upload Food Images")
+                                    const Icon(Icons.upload_file),
+                                    const Text("Upload Food Images")
                                   ],
                                 ),
                               ),
@@ -88,9 +88,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                           FoodController().pickImage();
                                         },
                                         child: DottedBorder(
-                                          radius: Radius.circular(12),
+                                          radius: const Radius.circular(12),
                                           borderType: BorderType.RRect,
-                                          child: Container(
+                                          child: SizedBox(
                                             width: double.infinity,
                                             height: 200.h,
                                             child: Column(
@@ -98,8 +98,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 SizedBox(
                                                   height: 65.h,
                                                 ),
-                                                Icon(Icons.upload_file),
-                                                Text("Upload Food Images")
+                                                const Icon(Icons.upload_file),
+                                                const Text("Upload Food Images")
                                               ],
                                             ),
                                           ),
@@ -119,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             onTap: () {
                                               controller.removeImage(index);
                                             },
-                                            child: CircleAvatar(
+                                            child: const CircleAvatar(
                                               child: Icon(Icons.close),
                                             ),
                                           )
@@ -158,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 45.h,
                   width: double.infinity,
                   child: FilledButton(
-                    style: ButtonStyle(
+                    style: const ButtonStyle(
                         backgroundColor: WidgetStatePropertyAll(Colors.blue)),
                     onPressed: () {
                       if (formkey.currentState!.validate()) {
@@ -169,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         GoRouter.of(context).pop();
                       }
                     },
-                    child: Text("Add Product"),
+                    child: const Text("Add Product"),
                   ),
                 ),
                 SizedBox(height: MediaQuery.of(context).viewInsets.bottom)
@@ -196,7 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
               onPressed: () {},
-              icon: Icon(
+              icon: const Icon(
                 Icons.shopping_cart_outlined,
                 color: Colors.white,
               )),
@@ -204,20 +204,20 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               AuthController().signOut();
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.logout,
               color: Colors.white,
             ),
           ),
         ],
-        title: Text(
+        title: const Text(
           "Maharaja Chinese",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.white,
-        child: Icon(
+        child: const Icon(
           Icons.add,
           color: Colors.black,
         ),
@@ -226,7 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
       body: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         width: double.infinity,
         child: Consumer<FoodController>(builder: (context, controller, _) {
           return Expanded(
@@ -265,7 +265,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(
                             controller.FoodItems[index]['desc'],
                             maxLines: 2,
-                            style: TextStyle(color: Colors.grey),
+                            style: const TextStyle(color: Colors.grey),
                           ),
                         ],
                       ),
@@ -277,8 +277,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               TextSpan(
                                   text: controller.FoodItems[index]['price'],
-                                  style: TextStyle(color: Colors.black)),
-                              TextSpan(
+                                  style: const TextStyle(color: Colors.black)),
+                              const TextSpan(
                                   text: "₹",
                                   style: TextStyle(color: Colors.black))
                             ],
@@ -289,7 +289,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         IconButton(
                             onPressed: () {},
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.add_shopping_cart,
                               color: Colors.blue,
                             ))

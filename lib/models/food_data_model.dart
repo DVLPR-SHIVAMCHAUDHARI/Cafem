@@ -1,4 +1,3 @@
-
 class FoodDataModel {
   List<dynamic>? img;
   String? price;
@@ -15,13 +14,13 @@ class FoodDataModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    if(img != null) {
-      _data["img"] = img;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (img != null) {
+      data["img"] = img;
     }
-    _data["price"] = price;
-    _data["title"] = title;
-    _data["desc"] = desc;
-    return _data;
+    data["price"] = price;
+    data["title"] = title;
+    data["desc"] = desc;
+    return data;
   }
 }

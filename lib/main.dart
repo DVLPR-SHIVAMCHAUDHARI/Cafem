@@ -35,12 +35,12 @@ class Cafem extends StatelessWidget {
         path: '/',
         name: Routes.signin.name,
         builder: (context, state) =>
-            AuthController().isLogin ? HomeScreen() : SignInScreen(),
+            AuthController().isLogin ? HomeScreen() : const SignInScreen(),
       ),
       GoRoute(
         path: '/signup',
         name: Routes.signnup.name,
-        builder: (context, state) => SignUpScreen(),
+        builder: (context, state) => const SignUpScreen(),
       ),
       GoRoute(
         path: '/home',
@@ -58,7 +58,7 @@ class Cafem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(430, 932),
+      designSize: const Size(430, 932),
       child: MultiProvider(
           providers: [
             ChangeNotifierProvider(create: (_) => AuthController()),
